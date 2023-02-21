@@ -1,21 +1,20 @@
-#ifndef MAINWINDOW_H
-#define MAINWINDOW_H
-
-#include <QMainWindow>
-
-QT_BEGIN_NAMESPACE
-namespace Ui { class MainWindow; }
-QT_END_NAMESPACE
-
-class MainWindow : public QMainWindow
+#ifndef MYSQLTEST_H
+#define MYSQLTEST_H
+#include <QApplication>
+#include <QSqlDatabase>
+#include <QSqlQuery>
+#include <QSqlError>
+#include <QDebug>
+#include <QApplication>
+#include <QtWidgets/QMessageBox>
+#include <string>
+class mysqltest
 {
-    Q_OBJECT
-
 public:
-    MainWindow(QWidget *parent = nullptr);
-    ~MainWindow();
-
-private:
-    Ui::MainWindow *ui;
+    mysqltest();
+    QSqlDatabase db;
+    bool find(QString id,QString& name,QString password);
+    bool add(QString id,QString name,QString password);
 };
-#endif // MAINWINDOW_H
+
+#endif // MYSQLTEST_H
